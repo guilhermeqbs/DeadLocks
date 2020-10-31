@@ -1,13 +1,19 @@
 package deadlock;
 
+import java.io.IOException;
+
 /**
  * Hello world!
  *
  */
-public class Principal
-{
-    public static void main( String[] args )
+public class Principal {
+    public static void main(String[] args) throws IOException
     {
-        System.out.println( "Hello Worlqd!" );
+        String leitura = "entrada.txt";
+        String escrita = "saida.txt";
+
+        ManipuladorArquivo.leitor(leitura);
+
+        DeadLockDetection.printArray();
     }
 }

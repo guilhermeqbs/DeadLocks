@@ -14,20 +14,28 @@ public class ManipuladorArquivo {
         BufferedReader buffRead = new BufferedReader(fileRead);
         
         String linha = "";
-        
+        int i=0;
+
 		while (true) {
 			if (linha != null) {
                 
-                //Alocamento.listaStr.add(linha);
-                
-			} else
-				break;
-			linha = buffRead.readLine();
+                if(i==1){
+                    DeadLockDetection.setQtdRecursos(linha);
+                }else if(i>1)
+                {
+                    DeadLockDetection.quebraLinha(linha);
+                }
+
+                i++;
+            }else
+                break;
+            linha = buffRead.readLine();
 		}
         buffRead.close();
         fileRead.close();
 	}
- 
+    
+    
 
 	public static void escritor(String path, int []mf) throws IOException {
 		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path));
