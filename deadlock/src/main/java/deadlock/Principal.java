@@ -14,7 +14,6 @@ public class Principal {
 
         ManipuladorArquivo.leitor(leitura);
 
-        DeadLockDetection.fon();
-        
+        ManipuladorArquivo.escritor(escrita, DeadLockDetection.fon());
     }
 }

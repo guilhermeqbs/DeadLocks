@@ -1,6 +1,7 @@
 package deadlock;
 
 import java.io.*;
+import java.util.ArrayList;
 
 
 public class ManipuladorArquivo {
@@ -19,7 +20,7 @@ public class ManipuladorArquivo {
 		while (true) {
 			if (linha != null) {
                 if(i==1){
-                    DeadLockDetection.setQtdRecursos(linha);
+                    //DeadLockDetection.setQtdRecursos(linha);
                 }else if(i>1)
                 {
                     DeadLockDetection.quebraLinha(linha);
@@ -33,11 +34,17 @@ public class ManipuladorArquivo {
         fileRead.close();
 	}
     
-	public static void escritor(String path, int []mf) throws IOException {
+	public static void escritor(String path, ArrayList<String> list) throws IOException {
 		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path));
-        for(int i=0; i<mf.length; i++){
-            buffWrite.append(mf[i] + " ");
+
+        for(int i=0; i<list.size(); i++){
+            buffWrite.append(list.get(i));
+            if(i<list.size()-1)
+            {
+                buffWrite.append(" ");
+            }
         }
+        list.clear();
         buffWrite.close();
 	}
 
