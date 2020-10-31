@@ -14,6 +14,7 @@ public class Principal {
 
         ManipuladorArquivo.leitor(leitura);
 
-        DeadLockDetection.printArray();
+        DeadLockDetection.fon();
+        
     }
 }
